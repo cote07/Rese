@@ -1,0 +1,102 @@
+.body {
+    position: relative;
+}
+
+.hamburger-menu {
+    position: absolute;
+}
+
+.shop-detail img {
+    width: 570px;
+    margin-bottom: 10px;
+}
+
+.shop-detail-flex {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 6rem;
+    padding-top: 35px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.prev-button {
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+}
+
+.shop-detail {
+    width: 570px;
+}
+
+.shop-reservation {
+    width: 570px;
+    height: 700px;
+    background-color: #3561F6;
+    border-radius: 5px;
+    color: #fff;
+    position: relative;
+}
+
+.shop-reservation h2 {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.shop-reservation input {
+    border-radius: 3px;
+    border: none;
+    height: 30px;
+    margin-bottom: 13px;
+    margin-left: 30px;
+}
+
+#date {
+    display: block;
+    width: 180px;
+}
+
+#time {
+    width: 85%;
+}
+
+#number {
+    width: 85%;
+}
+
+.result {
+    background-color: #5580F7;
+    width: 83%;
+    border-radius: 5px;
+    padding: 15px;
+    margin-left: 30px;
+}
+
+.result-title {
+    display: inline-block;
+    width: 30%;
+}
+
+.reservation-button {
+    background-color: #2B3FF5;
+    color: #fff;
+    border: none;
+    width: 100%;
+    height: 50px;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    bottom: 0;
+}

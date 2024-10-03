@@ -1,0 +1,149 @@
+.main {
+    padding-bottom: 50px;
+}
+
+.shop-list img {
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.shop__button-favorite-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.favorite-icon {
+    color: grey;
+    transition: color 0.3s;
+}
+
+.favorite-icon.active {
+    color: red;
+}
+
+.reservation-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reservationーcount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.reservations-section {
+    width: 46%;
+}
+
+.reservations-section h3 {
+    font-size: 23px;
+    width: 450px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.reservation {
+    background-color: blue;
+    width: 450px;
+    height: 270px;
+    margin: auto;
+    margin-bottom: 20px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 15px 35px 30px;
+}
+
+.favorites-section {
+    width: 54%;
+}
+
+.favorites-section h3 {
+    font-size: 23px;
+}
+
+.favorites-section-flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3.8rem;
+}
+
+.favorites-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.favorite-icon {
+    font-size: 38px;
+}
+
+.mypage-name {
+    text-align: center;
+    font-size: 30px;
+    line-height: 0.8;
+}
+
+.shop h2 {
+    line-height: 0;
+    font-size: 16px;
+}
+
+.shop p {
+    line-height: 0;
+    font-size: 11px;
+    margin-right: 5px;
+}
+
+.shop-list {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.shop-list-text {
+    padding: 15px 20px 17px;
+}
+
+.look-link {
+    text-decoration: none;
+    background-color: blue;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.result-title {
+    display: inline-block;
+    width: 30%;
+}
+
+.close-button {
+    border: none;
+    background-color: blue;
+}
+
+.close-icon {
+    color: #fff;
+    background-color: blue;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
