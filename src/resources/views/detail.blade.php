@@ -29,10 +29,30 @@
             <input type="hidden" name="user_id" value="{{ $user->id }}">
             @endif
             <input type="hidden" name="shop_id" value="{{ $shop->id }}">
-            <input type="date" name="date" id="date">
-            <input type="time" name="time" id="time">
-            <input type="number" name="number" id="number" min="1">
-
+            <div class="reservation-select">
+                <input type="date" name="date" id="date" value="{{ old('date') }}">
+                <div class="form__error">
+                    @error('date')
+                    {{ $message }}
+                    @enderror
+                </div>
+            </div>
+            <div class="reservation-select">
+                <input type="time" name="time" id="time" value="{{ old('time') }}">
+                <div class="form__error">
+                    @error('time')
+                    {{ $message }}
+                    @enderror
+                </div>
+            </div>
+            <div class="reservation-select">
+                <input type="number" name="number" id="number" min="1" value="{{ old('number') }}">
+                <div class="form__error">
+                    @error('number')
+                    {{ $message }}
+                    @enderror
+                </div>
+            </div>
             <div class="result">
                 <p><span class="result-title">Shop</span><span>{{ $shop->name }}</span></p>
                 <p><span class="result-title">Date</span><span id="selected-date">未選択</span></p>
