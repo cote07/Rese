@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Route;
     Route::delete('/shops/{shop_id}/favorites', [FavoriteController::class, 'delete'])->name('favorite.delete');
     Route::post('/shops/{shop_id}/reservations', [ReservationController::class, 'create'])->name('reservation.create');
     Route::delete('/shops/{shop_id}/reservations/{reservation_id}', [ReservationController::class, 'delete'])->name('reservation.delete');
+    Route::patch('/shops/{shop_id}/reservations/{reservation_id}', [ReservationController::class, 'update'])->name('reservation.update');
+    Route::get('/shops/{shop_id}/reservations/{reservation_id}', [ReservationController::class, 'change'])->name('change');
+   Route::get('/complete/{reservation_id}', [ReservationController::class, 'complete'])->name('complete');
     Route::get('/mypage', [UserController::class, 'mypage']);
  });
 

@@ -20,15 +20,22 @@
                         </span>
                         <p>予約{{ $loop->iteration }}</p>
                     </div>
-                    <form action="{{ route('reservation.delete', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="close-button">
-                            <span class="material-icons-outlined close-icon">
-                                close
-                            </span>
-                        </button>
-                    </form>
+                    <div class="flex">
+                            <a href="{{ route('reservation.update', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}">
+                                <span class="material-icons-outlined update-icon">
+                                    update
+                                </span>
+                            </a>
+                            <form action="{{ route('reservation.delete', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="close-button">
+                                    <span class="material-icons-outlined close-icon">
+                                        close
+                                    </span>
+                                </button>
+                            </form>
+                    </div>
                 </div>
                 <p><span class="result-title">Shop</span><span>{{ $reservation->shop->name }}</span></p>
                 <p><span class="result-title">Date</span><span>{{ $reservation->date }}</span></p>

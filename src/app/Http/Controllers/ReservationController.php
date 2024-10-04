@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReservationRequest;
 
@@ -34,6 +35,34 @@ class ReservationController extends Controller
         $reservation->delete();
 
         return back();
+    }
+
+    public function update(Request $request, $shop_id, $reservation_id)
+    {
+        $reservation = Reservation::findOrFail($reservation_id);
+
+        $reservation->date = $request->date;
+        $reservation->time = $request->time;
+        $reservation->number = $request->number;
+        $reservation->save();
+
+        return redirect()->route('complete', ['reservation_id' => $reservation->id]);
+    }
+
+    public function change($shop_id, $reservation_id)
+    {
+        $reservation = Reservation::findOrFail($reservation_id);
+        $shop = Shop::findOrFail($shop_id);
+        $user = Auth::user();
+
+        return view('change', compact('reservation','user', 'shop'));
+    }
+
+    public function complete($reservation_id)
+    {
+        $reservation = Reservation::findOrFail($reservation_id);
+
+        return view('complete', compact('reservation'));
     }
 
 }
