@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
+use App\Models\Reservation;
 
 class ShopController extends Controller
 {
@@ -19,7 +20,7 @@ class ShopController extends Controller
 
     public function detail($shop_id)
     {
-        $shop = Shop::with('area', 'genre')->findOrFail($shop_id);
+        $shop = Shop::with('area','genre', 'reviews.user')->findOrFail($shop_id);
         $user = auth()->user();
 
         $shopIds = Shop::orderBy('id')->pluck('id')->toArray();
@@ -29,7 +30,17 @@ class ShopController extends Controller
         $prevIndex = $currentIndex - 1 < 0 ? count($shopIds) - 1 : $currentIndex - 1;
         $prevShopId = $shopIds[$prevIndex];
 
-        return view('detail', compact('shop', 'user', 'prevShopId'));
+        if ($user) {
+            $reservation = Reservation::where('user_id', $user->id)
+                ->where('shop_id', $shop_id)
+                ->exists();
+
+            $reservation_id = $reservation ? Reservation::where('user_id', $user->id)->where('shop_id', $shop_id)->first()->id : null;
+        } else {
+            $reservation_id = null;
+        }
+
+        return view('detail', compact('shop', 'user','prevShopId', 'reservation_id'));
     }
 
     public function search(Request $request)

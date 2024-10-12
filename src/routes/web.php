@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/shops/{shop_id}/reservations/{reservation_id}', [ReservationController::class, 'change'])->name('change');
    Route::get('/complete/{reservation_id}', [ReservationController::class, 'complete'])->name('complete');
     Route::get('/mypage', [UserController::class, 'mypage']);
+   Route::get('/reviews', [ReviewController::class, 'review'])->name('reviews');
+   Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
  });
 
 Route::post('/login', [AuthController::class, 'store']);

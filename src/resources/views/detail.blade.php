@@ -19,6 +19,26 @@
             <p>#{{ $shop->genre->name }}</p>
         </div>
         <p>{{ $shop->description }}</p>
+        <div class="review-content">
+            <div class="flex">
+                <h2>レビュー</h2>
+                @if (Auth::check())
+                <a href="{{ route('reviews', ['shop_id' => $shop->id, 'reservation_id' => $reservation_id]) }}">投稿する</a>
+
+                @endif
+            </div>
+            @if ($shop->reviews->isEmpty())
+            <p>まだレビューはありません。</p>
+            @else
+            @foreach ($shop->reviews as $review)
+            <div class="review-text">
+                <p>評価: {{ $review->rating }}</p>
+                <p>コメント: {{ $review->comment }}</p>
+                <p>投稿日時: {{ $review->created_at->format('Y-m-d H:i') }}</p>
+            </div>
+            @endforeach
+            @endif
+        </div>
     </div>
 
     <div class="shop-reservation">

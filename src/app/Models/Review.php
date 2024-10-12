@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reservation extends Model
+class Review extends Model
 {
     use HasFactory;
 
@@ -14,22 +14,21 @@ class Reservation extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function shop()
+    public function shops()
     {
         return $this->belongsTo(Shop::class);
     }
 
-    public function reviews()
+    public function reservations()
     {
-        return $this->hasOne(Review::class);
+        return $this->belongsTo(Reservation::class);
     }
 
     protected $fillable = [
         'user_id',
         'shop_id',
-        'date',
-        'time',
-        'number',
-        'status',
+        'reservation_id',
+        'rating',
+        'comment',
     ];
 }

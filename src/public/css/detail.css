@@ -13,10 +13,10 @@
 
 .shop-detail-flex {
     display: flex;
-    align-items: end;
+    align-items: baseline;
     justify-content: center;
     gap: 6rem;
-    padding-top: 35px;
+    padding-top: 75px;
 }
 
 .flex {
