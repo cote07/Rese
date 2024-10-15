@@ -21,26 +21,36 @@
                         <p>予約{{ $loop->iteration }}</p>
                     </div>
                     <div class="flex">
-                            <a href="{{ route('reservation.update', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}">
-                                <span class="material-icons-outlined update-icon">
-                                    update
+                        <a href="{{ route('reservation.update', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}">
+                            <span class="material-icons-outlined update-icon">
+                                update
+                            </span>
+                        </a>
+                        <form action="{{ route('reservation.delete', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="close-button">
+                                <span class="material-icons-outlined close-icon">
+                                    close
                                 </span>
-                            </a>
-                            <form action="{{ route('reservation.delete', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="close-button">
-                                    <span class="material-icons-outlined close-icon">
-                                        close
-                                    </span>
-                                </button>
-                            </form>
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <p><span class="result-title">Shop</span><span>{{ $reservation->shop->name }}</span></p>
                 <p><span class="result-title">Date</span><span>{{ $reservation->date }}</span></p>
                 <p><span class="result-title">Time</span><span>{{ $reservation->time }}</span></p>
                 <p><span class="result-title">Number</span><span>{{ $reservation->number }}</span></p>
+                <form method="POST" action="{{ route('qrcode') }}">
+                    @csrf
+                    <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
+                    <button type="submit" class="qr-button">QRコード</button>
+                </form>
+                <div class="qr-content">
+                    @if (session('qrCode') && session('reservationId') == $reservation->id)
+                    <div>{!! session('qrCode') !!}</div>
+                    @endif
+                </div>
             </div>
             @endforeach
         </div>

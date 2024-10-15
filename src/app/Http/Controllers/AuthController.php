@@ -13,10 +13,18 @@ class AuthController extends Controller
 
     public function store(LoginRequest $request)
     {
-        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('index');
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $request->session()->regenerate();
+
+            $user = Auth::user();
+            if ($user->hasRole('admin')) {
+                return redirect()->route('admin');
+            } elseif ($user->hasRole('owner')) {
+                return redirect()->route('owner');
+            } else {
+                return redirect()->route('index');
+            }
         }
 
         throw new AuthenticationException('ログインに失敗しました。');

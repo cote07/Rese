@@ -58,12 +58,13 @@
 .reservation {
     background-color: blue;
     width: 450px;
-    height: 270px;
+    height: auto;
     margin: auto;
     margin-bottom: 20px;
     color: #fff;
     border-radius: 5px;
     padding: 15px 35px 30px;
+    position: relative;
 }
 
 .favorites-section {
@@ -158,4 +159,16 @@
     background-color: blue;
     border: none;
     font-size: 26px;
+}
+
+.qr-content {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.qr-button {
+    border: none;
+    background-color: #fff;
+    color: blue;
 }

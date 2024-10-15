@@ -28,14 +28,34 @@
     <nav class="menu" id="menu">
         <ul class="menu-list">
             @if (Auth::check())
+            @if (Auth::user()->hasAnyRole(['admin']))
+            <li><a href="/admin">Management</a></li>
+            <li>
+                <form class="logout" action="/logout" method="post">
+                    @csrf
+                    <button class="logout-link">Logout</button>
+                </form>
+            </li>
+            @endif
+            @if (Auth::user()->hasAnyRole(['owner']))
+            <li><a href="/owner">Management</a></li>
+            <li>
+                <form class="logout" action="/logout" method="post">
+                    @csrf
+                    <button class="logout-link">Logout</button>
+                </form>
+            </li>
+            @endif
+            @if (Auth::user()->hasAnyRole(['user']))
             <li><a href="/">Home</a></li>
             <li>
-                <form class="form" action="/logout" method="post">
+                <form class="logout" action="/logout" method="post">
                     @csrf
                     <button class="logout-link">Logout</button>
                 </form>
             </li>
             <li><a href="/mypage">Mypage</a></li>
+            @endif
             @else
             <li><a href="/">Home</a></li>
             <li><a href="/register">Registration</a></li>
