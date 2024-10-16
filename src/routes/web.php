@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,6 +33,8 @@ Route::group(['middleware' => ['role:owner']], function () {
   Route::get('/owner', [OwnerController::class, 'owner'])->name('owner');
   Route::get('/owner/reservations', [OwnerController::class, 'confirmation'])->name('owner.reservations');
   Route::post('/owner/update', [OwnerController::class, 'update'])->name('owner.update');
+  Route::get('/mail', [MailController::class, 'mail'])->name('mail');
+  Route::post('/mail/send', [MailController::class, 'send'])->name('mail.send');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

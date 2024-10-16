@@ -69,25 +69,18 @@ class ReservationController extends Controller
 
     public function generate(Request $request)
     {
-        // 予約IDを取得
         $reservationId = $request->input('reservation_id');
 
-        // QRコードを生成
         $qrCode = \QrCode::size(150)->generate($reservationId);
 
-        // セッションにQRコードを保存
         Session::flash('qrCode', $qrCode);
         Session::flash('reservationId', $reservationId);
 
-        // リダイレクトまたはビューファイルを返す
         return redirect()->back();
     }
 
-
-    // QRコードを表示するメソッド
     public function show($reservation_id)
     {
-        // ビューに予約IDを渡す
         return view('mypage', ['reservation_id' => $reservation_id]);
     }
 

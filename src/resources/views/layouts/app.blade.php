@@ -39,6 +39,7 @@
             @endif
             @if (Auth::user()->hasAnyRole(['owner']))
             <li><a href="/owner">Management</a></li>
+            <li><a href="/mail">Email</a></li>
             <li>
                 <form class="logout" action="/logout" method="post">
                     @csrf
