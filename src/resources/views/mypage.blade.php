@@ -8,7 +8,21 @@
 
 <div class="mypage-content">
     <h2 class="mypage-name">{{ $user->name }}さん</h2>
-    <div class="flex">
+    <form action="{{ asset('charge') }}" method="POST" class="charge-form">
+        {{ csrf_field() }}
+        <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ env('STRIPE_KEY') }}"
+            data-amount="1000"
+            data-name="Stripe Demo"
+            data-label="決済"
+            data-description="Online course about integrating Stripe"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto"
+            data-currency="JPY">
+        </script>
+    </form>
+    <div class=" flex">
         <div class="reservations-section">
             <h3>予約状況</h3>
             @foreach($reservations as $reservation)

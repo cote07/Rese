@@ -10,8 +10,8 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\ChargeController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +52,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
   Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
   Route::post('/qrcode', [ReservationController::class, 'generate'])->name('qrcode');
   Route::get('/qrcode/{reservation_id}', [ReservationController::class, 'show'])->name('qrcode.show');
+  Route::post('/charge', [ChargeController::class, 'charge'])->name('charge');
 });
 
 Route::post('/login', [AuthController::class, 'store']);
