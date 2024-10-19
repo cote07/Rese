@@ -10,7 +10,11 @@
         <div class="flex">
             <h2>{{ $shop->name }}</h2>
         </div>
+        @if (Str::startsWith($shop->image_url, 'http'))
         <img src="{{ $shop->image_url }}" alt="{{ $shop->name }}">
+        @else
+        <img src="{{ asset('storage/' . $shop->image_url) }}" alt="Shop Image">
+        @endif
         <div class="flex">
             <p>#{{ $shop->area->name }}</p>
             <p>#{{ $shop->genre->name }}</p>
@@ -19,7 +23,7 @@
     </div>
     <div class="edit-content">
         <h2>店舗情報の変更</h2>
-        <form action="{{ route('owner.shop.update', ['shop_id' => $shop->id]) }}" method="POST">
+        <form action="{{ route('owner.shop.update', ['shop_id' => $shop->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 
@@ -57,7 +61,7 @@
 
             <div class="form-group">
                 <label>画像</label>
-                <input type="text" name="image_url" class="form-control" value="{{ $shop->image_url }}">
+                <input type="file" name="image_url" class="form-control" accept="image/*">
             </div>
 
             <button type="submit" class="update-button">更新する</button>

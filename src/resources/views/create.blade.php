@@ -6,7 +6,7 @@
 
 @section('content')
 <h2>新店舗を作成</h2>
-<form action="{{ route('shop.store') }}" method="POST">
+<form action="{{ route('shop.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group">
@@ -41,7 +41,7 @@
 
     <div class="form-group">
         <label for="image_url">画像</label>
-        <input type="text" name="image_url" class="form-control">
+        <input type="file" name="image_url" class="form-control" accept="image/*">
     </div>
 
     <button type="submit" class="btn btn-primary">作成</button>

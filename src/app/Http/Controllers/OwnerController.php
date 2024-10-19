@@ -42,13 +42,17 @@ class OwnerController extends Controller
     {
         $shop = Shop::findOrFail($shop_id);
 
-        $shop->update([
-            'name' => $request->name,
-            'area_id' => $request->area_id,
-            'genre_id' => $request->genre_id,
-            'description' => $request->description,
-            'image_url' => $request->image_url,
-        ]);
+        if ($request->hasFile('image_url')) {
+            $path = $request->file('image_url')->store('images', 'public');
+            $shop->image_url = $path;
+        }
+
+        $shop->name = $request->name;
+        $shop->area_id = $request->area_id;
+        $shop->genre_id = $request->genre_id;
+        $shop->description = $request->description;
+
+        $shop->save();
 
         $areas = Area::all();
         $genres = Genre::all();
@@ -66,12 +70,16 @@ class OwnerController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->hasFile('image_url')) {
+            $path = $request->file('image_url')->store('images', 'public');
+        }
+
         $shop = Shop::create([
             'name' => $request->name,
             'description' => $request->description,
             'area_id' => $request->area_id,
             'genre_id' => $request->genre_id,
-            'image_url' => $request->image_url,
+            'image_url' => $path,
         ]);
 
         $user = Auth::user();

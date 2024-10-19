@@ -11,7 +11,11 @@
         <div class="flex">
             <h2>{{ $shop->name }}</h2>
         </div>
+        @if (Str::startsWith($shop->image_url, 'http'))
         <img src="{{ $shop->image_url }}" alt="{{ $shop->name }}">
+        @else
+        <img src="{{ asset('storage/' . $shop->image_url) }}" alt="Shop Image">
+        @endif
         <div class="flex">
             <p>#{{ $shop->area->name }}</p>
             <p>#{{ $shop->genre->name }}</p>

@@ -73,7 +73,11 @@
             <div class="favorites-section-flex">
                 @foreach($favorites as $favorite)
                 <div class="shop-list">
+                    @if (Str::startsWith($favorite->shop->image_url, 'http'))
                     <img src="{{ $favorite->shop->image_url }}" alt="{{ $favorite->shop->name }}">
+                    @else
+                    <img src="{{ asset('storage/' . $favorite->shop->image_url) }}" alt="Shop Image">
+                    @endif
                     <div class="shop-list-text">
                         <div class="shop">
                             <h2>{{ $favorite->shop->name }}</h2>

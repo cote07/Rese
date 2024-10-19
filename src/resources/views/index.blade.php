@@ -37,7 +37,11 @@
     <div class="shop-content" id="search-results">
         @foreach($shops as $shop)
         <div class="shop-list">
+            @if (Str::startsWith($shop->image_url, 'http'))
             <img src="{{ $shop->image_url }}" alt="{{ $shop->name }}">
+            @else
+            <img src="{{ asset('storage/' . $shop->image_url) }}" alt="Shop Image">
+            @endif
             <div class="shop-list-text">
                 <div class="shop">
                     <h2>{{ $shop->name }}</h2>
