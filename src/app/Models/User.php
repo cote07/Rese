@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -51,5 +52,10 @@ class User extends Authenticatable
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
+    }
+
+    public function ownedShops(): BelongsToMany
+    {
+        return $this->belongsToMany(Shop::class, 'owners', 'user_id', 'shop_id');
     }
 }

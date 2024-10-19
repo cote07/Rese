@@ -1,0 +1,64 @@
+.body {
+    position: relative;
+}
+
+.hamburger-menu {
+    position: absolute;
+}
+
+.shop-detail img {
+    width: 570px;
+    margin-bottom: 10px;
+}
+
+.shop-detail-flex {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6rem;
+    padding-top: 75px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.shop-detail {
+    width: 570px;
+}
+
+.edit-content {
+    width: 570px;
+    height: 700px;
+    background-color: #3561F6;
+    border-radius: 5px;
+    color: #fff;
+    position: relative;
+}
+
+.edit-content h2 {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.update-button {
+    background-color: #2B3FF5;
+    color: #fff;
+    border: none;
+    width: 100%;
+    height: 50px;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    bottom: 0;
+}
+
+.form-group {
+    margin: 10px 30px;
+}
+
+.form-control {
+    border-radius: 5px;
+}

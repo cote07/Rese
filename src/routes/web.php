@@ -24,17 +24,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['role:admin']], function () {
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
   Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
   Route::post('/admin/create', [AdminController::class, 'create'])->name('admin.create');
 });
 
-Route::group(['middleware' => ['role:owner']], function () {
+Route::group(['middleware' => ['auth', 'role:owner']], function () {
   Route::get('/owner', [OwnerController::class, 'owner'])->name('owner');
-  Route::get('/owner/reservations', [OwnerController::class, 'confirmation'])->name('owner.reservations');
-  Route::post('/owner/update', [OwnerController::class, 'update'])->name('owner.update');
+  Route::get('/owner/{shop_id}/reservations', [OwnerController::class, 'reservations'])->name('owner.reservations');
   Route::get('/mail', [MailController::class, 'mail'])->name('mail');
   Route::post('/mail/send', [MailController::class, 'send'])->name('mail.send');
+  Route::get('/shop/create', [OwnerController::class, 'create'])->name('shop.create');
+  Route::post('/shop/store', [OwnerController::class, 'store'])->name('shop.store');
+  Route::patch('/owner/{shop_id}', [OwnerController::class, 'update'])->name('owner.shop.update');
+  Route::get('/owner/{shop_id}/edit', [OwnerController::class, 'edit'])->name('owner.shop.edit');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

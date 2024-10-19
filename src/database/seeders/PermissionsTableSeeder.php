@@ -37,8 +37,36 @@ class PermissionsTableSeeder extends Seeder
         $admin->assignRole('admin');
 
         $owner = User::create([
-            'name' => ' owner',
-            'email' => 'owner@example.com',
+            'name' => ' owner1',
+            'email' => 'owner1@example.com',
+            'password' => bcrypt('password')
+        ]);
+        $owner->assignRole('owner');
+
+        $owner = User::create([
+            'name' => ' owner2',
+            'email' => 'owner2@example.com',
+            'password' => bcrypt('password')
+        ]);
+        $owner->assignRole('owner');
+
+        $owner = User::create([
+            'name' => ' owner3',
+            'email' => 'owner3@example.com',
+            'password' => bcrypt('password')
+        ]);
+        $owner->assignRole('owner');
+
+        $owner = User::create([
+            'name' => ' owner4',
+            'email' => 'owner4@example.com',
+            'password' => bcrypt('password')
+        ]);
+        $owner->assignRole('owner');
+
+        $owner = User::create([
+            'name' => ' owner5',
+            'email' => 'owner5@example.com',
             'password' => bcrypt('password')
         ]);
         $owner->assignRole('owner');

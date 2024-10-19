@@ -5,5 +5,28 @@
 @endsection
 
 @section('content')
-<h2>owner</h2>
+<h2 class="myshop">MyShop</h2>
+<div class="shop-container">
+    <div class="shop-content" id="search-results">
+        @foreach($shops as $shop)
+        <div class="shop-list">
+            <img src="{{ $shop->image_url }}" alt="{{ $shop->name }}">
+            <div class="shop-list-text">
+                <div class="shop">
+                    <h2>{{ $shop->name }}</h2>
+                    <div class="flex">
+                        <p>#{{ $shop->area->name }}</p>
+                        <p>#{{ $shop->genre->name }}</p>
+                    </div>
+                </div>
+                <div class="link-flex">
+                    <a href="{{ route('owner.reservations', ['shop_id' => $shop->id]) }}" class="look-link">予約情報</a>
+                    <a href="{{ route('owner.shop.edit', ['shop_id' => $shop->id]) }}" class="look-link">店舗情報変更</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    <a href="{{ route('shop.create') }}" class="add-button">+</a>
+</div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Shop extends Model
 {
@@ -32,6 +33,11 @@ class Shop extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function owners(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'owners', 'shop_id', 'user_id');
     }
 
     protected $fillable = [

@@ -1,0 +1,67 @@
+@extends('layouts.app')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/edit.css') }}">
+@endsection
+
+@section('content')
+<div class="shop-detail-flex">
+    <div class="shop-detail">
+        <div class="flex">
+            <h2>{{ $shop->name }}</h2>
+        </div>
+        <img src="{{ $shop->image_url }}" alt="{{ $shop->name }}">
+        <div class="flex">
+            <p>#{{ $shop->area->name }}</p>
+            <p>#{{ $shop->genre->name }}</p>
+        </div>
+        <p>{{ $shop->description }}</p>
+    </div>
+    <div class="edit-content">
+        <h2>店舗情報の変更</h2>
+        <form action="{{ route('owner.shop.update', ['shop_id' => $shop->id]) }}" method="POST">
+            @csrf
+            @method('PATCH')
+
+            <div class="form-group">
+                <label>店舗名</label>
+                <input type="text" name="name" class="form-control" value="{{ $shop->name }}">
+            </div>
+
+            <div class="form-group">
+                <label>エリア</label>
+                <select name="area_id" class="form-control">
+                    @foreach ($areas as $area)
+                    <option value="{{ $area->id }}" {{ $shop->area_id == $area->id ? 'selected' : '' }}>
+                        {{ $area->name }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>ジャンル</label>
+                <select name="genre_id" class="form-control">
+                    @foreach ($genres as $genre)
+                    <option value="{{ $genre->id }}" {{ $shop->genre_id == $genre->id ? 'selected' : '' }}>
+                        {{ $genre->name }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>説明</label>
+                <textarea name="description" class="form-control">{{ $shop->description }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>画像</label>
+                <input type="text" name="image_url" class="form-control" value="{{ $shop->image_url }}">
+            </div>
+
+            <button type="submit" class="update-button">更新する</button>
+        </form>
+    </div>
+</div>
+@endsection

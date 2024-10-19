@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ShopsTableSeeder::class);
         $this->call(FavoritesTableSeeder::class);
         $this->call(ReservationsTableSeeder::class);
+        $this->call(OwnersTableSeeder::class);
     }
 }
