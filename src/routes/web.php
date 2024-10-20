@@ -12,6 +12,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ChargeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\VerificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +65,16 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/', [ShopController::class, 'index'])->name('index');
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('detail');
 Route::get('/search', [ShopController::class, 'search'])->name('search');
+
+Route::get('/email/verify', function () {
+  return view('verify');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+  $request->fulfill();
+  return redirect('/thanks');
+
+})->middleware(['auth', 'signed'])->name('verification.verify');
+Route::post('/resend-verification-email', [VerificationController::class, 'resend'])
+  ->middleware(['auth', 'throttle:6,1'])
+  ->name('verification.resend');
