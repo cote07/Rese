@@ -71,7 +71,19 @@ class ReservationController extends Controller
     {
         $reservationId = $request->input('reservation_id');
 
-        $qrCode = \QrCode::size(150)->generate($reservationId);
+        $reservation = Reservation::with(['shop', 'user'])->find($reservationId);
+
+        $qrData = sprintf(
+            "Date: %s\nTime: %s\nNumber: %d\nShop: %s\nUser: %s\nEmail: %s",
+            $reservation->date,
+            $reservation->time,
+            $reservation->number,
+            $reservation->shop->name,
+            $reservation->user->name,
+            $reservation->user->email,
+        );
+
+        $qrCode = \QrCode::encoding('UTF-8')->size(150)->generate($qrData);
 
         Session::flash('qrCode', $qrCode);
         Session::flash('reservationId', $reservationId);
