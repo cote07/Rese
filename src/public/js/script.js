@@ -13,3 +13,10 @@ function toggleMenu() {
         closeIcon.style.display = 'none';
     }
 }
+
+document.getElementById('keyword-input').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById('search-form').submit();
+        }
+    });

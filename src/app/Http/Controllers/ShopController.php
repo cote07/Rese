@@ -40,7 +40,16 @@ class ShopController extends Controller
             $reservation_id = null;
         }
 
-        return view('detail', compact('shop', 'user','prevShopId', 'reservation_id'));
+        $timeSlots = [];
+        $start = strtotime('09:00');
+        $end = strtotime('21:00');
+
+        while ($start <= $end) {
+            $timeSlots[] = date('H:i', $start);
+            $start = strtotime('+30 minutes', $start);
+        }
+
+        return view('detail', compact('shop', 'user','prevShopId', 'reservation_id', 'timeSlots'));
     }
 
     public function search(Request $request)

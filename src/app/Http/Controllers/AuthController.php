@@ -27,6 +27,8 @@ class AuthController extends Controller
             }
         }
 
-        throw new AuthenticationException('ログインに失敗しました。');
+        return back()->withErrors([
+            'password' => 'メールアドレスまたはパスワードが正しくありません。',
+        ]);
     }
 }

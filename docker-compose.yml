@@ -40,11 +40,3 @@ services:
             - mysql
         ports:
             - 8080:80
-
-    scheduler:
-        build: ./docker/php
-        command: php artisan schedule:work
-        volumes:
-            - ./src:/var/www/
-        depends_on:
-            - php

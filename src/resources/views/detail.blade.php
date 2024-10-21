@@ -62,7 +62,12 @@
                 </div>
             </div>
             <div class="reservation-select">
-                <input type="time" name="time" id="time" value="{{ old('time') }}">
+                <select name="time" id="time" class="time">
+                    <option value="" disabled selected>時間</option>
+                    @foreach ($timeSlots as $time)
+                    <option value="{{ $time }}" {{ old('time') == $time ? 'selected' : '' }}>{{ $time }}</option>
+                    @endforeach
+                </select>
                 <div class="form__error">
                     @error('time')
                     {{ $message }}
@@ -70,7 +75,12 @@
                 </div>
             </div>
             <div class="reservation-select">
-                <input type="number" name="number" id="number" min="1" value="{{ old('number') }}">
+                <select name="number" id="number" class="number">
+                    <option value="" disabled selected>人数</option>
+                    @for ($i = 1; $i <= 10; $i++)
+                        <option value="{{ $i }}" {{ old('number') == $i ? 'selected' : '' }}>{{ $i }}</option>
+                        @endfor
+                </select>
                 <div class="form__error">
                     @error('number')
                     {{ $message }}
@@ -79,9 +89,9 @@
             </div>
             <div class="result">
                 <p><span class="result-title">Shop</span><span>{{ $shop->name }}</span></p>
-                <p><span class="result-title">Date</span><span id="selected-date">未選択</span></p>
-                <p><span class="result-title">Time</span><span id="selected-time">未選択</span></p>
-                <p><span class="result-title">Number</span><span id="selected-number">未選択</span></p>
+                <p><span class="result-title">Date</span><span id="selected-date">{{ old('date') ? old('date') : '未選択' }}</span></p>
+                <p><span class="result-title">Time</span><span id="selected-time">{{ old('time') ? old('time') : '未選択' }}</span></p>
+                <p><span class="result-title">Number</span><span id="selected-number">{{ old('number') ? old('number') . '人' : '未選択' }}</span></p>
             </div>
             <button type="submit" class="reservation-button">予約する</button>
         </form>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateRequest;
 use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Genre;
@@ -24,7 +25,9 @@ class OwnerController extends Controller
     {
         $shop = Shop::findOrFail($shop_id);
 
-        $reservations = Reservation::where('shop_id', $shop->id)->get();
+        $reservations = Reservation::where('shop_id', $shop->id)
+            ->orderBy('date', 'asc')
+            ->paginate(5);
 
         return view('reservation', compact('shop', 'reservations'));
     }
@@ -68,7 +71,7 @@ class OwnerController extends Controller
         return view('create', compact('areas', 'genres'));
     }
 
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         if ($request->hasFile('image_url')) {
             $path = $request->file('image_url')->store('images', 'public');

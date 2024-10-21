@@ -53,7 +53,7 @@
                 </div>
                 <p><span class="result-title">Shop</span><span>{{ $reservation->shop->name }}</span></p>
                 <p><span class="result-title">Date</span><span>{{ $reservation->date }}</span></p>
-                <p><span class="result-title">Time</span><span>{{ $reservation->time }}</span></p>
+                <p><span class="result-title">Time</span><span>{{ substr($reservation->time, 0, 5) }}</span></p>
                 <p><span class="result-title">Number</span><span>{{ $reservation->number }}</span></p>
                 <form method="POST" action="{{ route('qrcode') }}">
                     @csrf

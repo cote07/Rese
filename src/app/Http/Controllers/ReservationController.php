@@ -75,12 +75,12 @@ class ReservationController extends Controller
 
         $qrData = sprintf(
             "Date: %s\nTime: %s\nNumber: %d\nShop: %s\nUser: %s\nEmail: %s",
-            $reservation->date,
-            $reservation->time,
-            $reservation->number,
             $reservation->shop->name,
             $reservation->user->name,
             $reservation->user->email,
+            $reservation->date,
+            $reservation->time,
+            $reservation->number,
         );
 
         $qrCode = \QrCode::encoding('UTF-8')->size(150)->generate($qrData);

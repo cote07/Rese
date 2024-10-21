@@ -42,7 +42,7 @@
             <div class="result">
                 <p><span class="result-title">Shop</span><span>{{ $shop->name }}</span></p>
                 <p><span class="result-title">Date</span><span id="selected-date">{{ old('date', $reservation->date) }}</span></p>
-                <p><span class="result-title">Time</span><span id="selected-time">{{ old('time', $reservation->time) }}</span></p>
+                <p><span class="result-title">Time</span><span id="selected-time">{{ old('time', substr($reservation->time, 0, 5)) }}</span></p>
                 <p><span class="result-title">Number</span><span id="selected-number">{{ old('number', $reservation->number) }}</span></p>
             </div>
             <button type="submit" class="reservation-button">予約を変更する</button>

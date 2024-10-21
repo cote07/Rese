@@ -23,17 +23,15 @@
         </select>
 
         <div class="search-text">
-            <button type="submit" style="background: none; border: none; cursor: pointer;">
-                <span class="material-icons-outlined search-icon">
-                    search
-                </span>
-            </button>
-            <input type="text" name="keyword" placeholder="Search..." value="{{ request('keyword') }}" class="keyword">
+            <span class="material-icons-outlined search-icon">
+                search
+            </span>
+            <input type="text" name="keyword" placeholder="Search..." value="{{ request('keyword') }}" class="keyword" id="keyword-input">
         </div>
     </form>
 </div>
 
-<div class="shop-container">
+<div class=" shop-container">
     <div class="shop-content" id="search-results">
         @foreach($shops as $shop)
         <div class="shop-list">

@@ -25,7 +25,7 @@
             @foreach($reservations as $reservation)
             <tr>
                 <td>{{ $reservation->date }}</td>
-                <td>{{ $reservation->time }}</td>
+                <td>{{ substr($reservation->time, 0, 5) }}</td>
                 <td>{{ $reservation->number }}</td>
                 <td>{{ $reservation->user->name }}</td>
                 <td>{{ $reservation->user->email }}</td>
@@ -34,5 +34,6 @@
         </tbody>
     </table>
     @endif
+    {{ $reservations->links('vendor.pagination.custom') }}
 </div>
 @endsection
