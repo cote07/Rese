@@ -56,11 +56,14 @@
     margin-top: 30px;
 }
 
+.reservation-select {
+    margin-bottom: 13px;
+}
+
 .reservation-select select {
     border-radius: 3px;
     border: none;
     height: 30px;
-    margin-bottom: 13px;
     margin-left: 30px;
 }
 
@@ -70,7 +73,6 @@
     border-radius: 3px;
     border: none;
     height: 30px;
-    margin-bottom: 13px;
     margin-left: 30px;
 }
 
@@ -104,4 +106,48 @@
     border-radius: 0 0 5px 5px;
     position: absolute;
     bottom: 0;
+}
+
+.review-button {
+    text-decoration: none;
+    display: flex;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #2B3FF5;
+    border-radius: 5px;
+}
+
+.reservation__error {
+    padding-left: 30px;
+    color: red;
+}
+
+.review-content {
+    background-color: #f9f9f9;
+    padding: 5px 20px 20px 20px;
+    margin-top: 38px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-text {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.review-text p {
+    margin: 5px 0;
+}
+
+.review-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

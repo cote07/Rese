@@ -23,17 +23,17 @@
     </div>
     <div class="edit-content">
         <h2>店舗情報の変更</h2>
-        <form action="{{ route('owner.shop.update', ['shop_id' => $shop->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('owner.shop.update', ['shop_id' => $shop->id]) }}" method="POST" enctype="multipart/form-data" class="form">
             @csrf
             @method('PATCH')
 
             <div class="form-group">
-                <label>店舗名</label>
+                <label class="form-label">店舗名</label>
                 <input type="text" name="name" class="form-control" value="{{ $shop->name }}">
             </div>
 
             <div class="form-group">
-                <label>エリア</label>
+                <label class="form-label">エリア</label>
                 <select name="area_id" class="form-control">
                     @foreach ($areas as $area)
                     <option value="{{ $area->id }}" {{ $shop->area_id == $area->id ? 'selected' : '' }}>
@@ -44,7 +44,7 @@
             </div>
 
             <div class="form-group">
-                <label>ジャンル</label>
+                <label class="form-label">ジャンル</label>
                 <select name="genre_id" class="form-control">
                     @foreach ($genres as $genre)
                     <option value="{{ $genre->id }}" {{ $shop->genre_id == $genre->id ? 'selected' : '' }}>
@@ -55,13 +55,13 @@
             </div>
 
             <div class="form-group">
-                <label>説明</label>
-                <textarea name="description" class="form-control">{{ $shop->description }}</textarea>
+                <label class="form-label">説明</label>
+                <textarea name="description">{{ $shop->description }}</textarea>
             </div>
 
             <div class="form-group">
-                <label>画像</label>
-                <input type="file" name="image_url" class="form-control" accept="image/*">
+                <label class="form-label">画像</label>
+                <input type="file" name="image_url" accept="image/*">
             </div>
 
             <button type="submit" class="update-button">更新する</button>

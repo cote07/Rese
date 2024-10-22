@@ -1,0 +1,63 @@
+.review-container {
+    background-color: #2B3FF5;
+    width: 370px;
+    margin: auto;
+    margin-top: 50px;
+    padding-top: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.review-container h2 {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 30px;
+    line-height: 0;
+}
+
+.review-content {
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.form-group {
+   padding-top: 5px;
+   padding-bottom: 5px;
+   margin-left: 35px;
+}
+
+.form-group p {
+    line-height: 0;
+}
+
+.rating {
+    border-radius: 3px;
+    width: 300px;
+    height: 35px;
+}
+
+.comment {
+    width: 300px;
+}
+
+.btn-primary {
+    background-color: blue;
+    color: #fff;
+   display: flex;
+   width: 100px;
+   height: 35px;
+   border: none;
+   align-items: center;
+   justify-content: center;
+   border-radius: 5px;
+   margin-left: auto;
+   margin-right: 35px;
+   margin-top: 15px;
+}
+
+.alert-danger {
+    color: red;
+    text-align: center;
+}

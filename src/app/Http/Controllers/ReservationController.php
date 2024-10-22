@@ -57,7 +57,16 @@ class ReservationController extends Controller
         $shop = Shop::findOrFail($shop_id);
         $user = Auth::user();
 
-        return view('change', compact('reservation','user', 'shop'));
+        $timeSlots = [];
+        $start = strtotime('09:00');
+        $end = strtotime('21:00');
+
+        while ($start <= $end) {
+            $timeSlots[] = date('H:i', $start);
+            $start = strtotime('+30 minutes', $start);
+        }
+
+        return view('change', compact('reservation','user', 'shop', 'timeSlots'));
     }
 
     public function complete($reservation_id)

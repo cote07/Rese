@@ -24,10 +24,10 @@
         </div>
         <p>{{ $shop->description }}</p>
         <div class="review-content">
-            <div class="flex">
+            <div class="review-flex">
                 <h2>レビュー</h2>
                 @if (Auth::check())
-                <a href="{{ route('reviews', ['shop_id' => $shop->id, 'reservation_id' => $reservation_id]) }}">投稿する</a>
+                <a href="{{ route('reviews', ['shop_id' => $shop->id, 'reservation_id' => $reservation_id]) }}" class="review-button">投稿する</a>
 
                 @endif
             </div>
@@ -36,9 +36,10 @@
             @else
             @foreach ($shop->reviews as $review)
             <div class="review-text">
-                <p>評価: {{ $review->rating }}</p>
-                <p>コメント: {{ $review->comment }}</p>
-                <p>投稿日時: {{ $review->created_at->format('Y-m-d H:i') }}</p>
+                <p>評価 {{ $review->rating }}</p>
+                <p>コメント</p>
+                <p>{{ $review->comment }}</p>
+                <p>投稿日時 {{ $review->created_at->format('Y-m-d H:i') }}</p>
             </div>
             @endforeach
             @endif
@@ -55,7 +56,7 @@
             <input type="hidden" name="shop_id" value="{{ $shop->id }}">
             <div class="reservation-select">
                 <input type="date" name="date" id="date" value="{{ old('date') }}">
-                <div class="form__error">
+                <div class="reservation__error">
                     @error('date')
                     {{ $message }}
                     @enderror
@@ -68,7 +69,7 @@
                     <option value="{{ $time }}" {{ old('time') == $time ? 'selected' : '' }}>{{ $time }}</option>
                     @endforeach
                 </select>
-                <div class="form__error">
+                <div class="reservation__error">
                     @error('time')
                     {{ $message }}
                     @enderror
@@ -81,7 +82,7 @@
                         <option value="{{ $i }}" {{ old('number') == $i ? 'selected' : '' }}>{{ $i }}</option>
                         @endfor
                 </select>
-                <div class="form__error">
+                <div class="reservation__error">
                     @error('number')
                     {{ $message }}
                     @enderror

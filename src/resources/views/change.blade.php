@@ -34,10 +34,20 @@
                 <input type="date" name="date" id="date" value="{{ old('date', $reservation->date) }}">
             </div>
             <div class="reservation-select">
-                <input type="time" name="time" id="time" value="{{ old('time', $reservation->time) }}">
+                <select name="time" id="time" class="time">
+                    <option value="" disabled selected>{{ old('time', substr($reservation->time, 0, 5)) }}</option>
+                    @foreach ($timeSlots as $time)
+                    <option value="{{ $time }}" {{ old('time') == $time ? 'selected' : '' }}>{{ $time }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="reservation-select">
-                <input type="number" name="number" id="number" min="1" value="{{ old('number', $reservation->number) }}">
+                <select name="number" id="number" class="number">
+                    <option value="" disabled selected>{{ old('number', $reservation->number) }}</option>
+                    @for ($i = 1; $i <= 10; $i++)
+                        <option value="{{ $i }}" {{ old('number') == $i ? 'selected' : '' }}>{{ $i }}</option>
+                        @endfor
+                </select>
             </div>
             <div class="result">
                 <p><span class="result-title">Shop</span><span>{{ $shop->name }}</span></p>

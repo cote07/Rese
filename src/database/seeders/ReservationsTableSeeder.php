@@ -20,4 +20,18 @@ class ReservationsTableSeeder extends Seeder
             Reservation::factory(2)->create(['user_id' => $user->id]);
         });
     }
+
+    protected function generateTimes()
+    {
+        $times = [];
+        $start = strtotime('09:00');
+        $end = strtotime('21:00');
+
+        while ($start <= $end) {
+            $times[] = date('H:i', $start);
+            $start = strtotime('+30 minutes', $start);
+        }
+
+        return $times;
+    }
 }

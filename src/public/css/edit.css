@@ -25,18 +25,18 @@
     gap: 10px;
 }
 
-
 .shop-detail {
     width: 570px;
 }
 
 .edit-content {
     width: 570px;
-    height: 700px;
+    height: 650px;
     background-color: #3561F6;
     border-radius: 5px;
     color: #fff;
     position: relative;
+    padding-top: 15px;
 }
 
 .edit-content h2 {
@@ -55,10 +55,36 @@
     bottom: 0;
 }
 
+.form {
+    margin-top: 38px;
+}
+
 .form-group {
-    margin: 10px 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+}
+
+.form-label {
+    margin-bottom: 5px;
+    width: 100px;
+    text-align: right;
+    padding-right: 10px;
 }
 
 .form-control {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+.form-group textarea {
+    width: 100%;
+    max-width: 400px;
+    height: 150px;
 }
