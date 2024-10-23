@@ -24,11 +24,11 @@
         <tbody>
             @foreach($reservations as $reservation)
             <tr>
-                <td>{{ $reservation->date }}</td>
-                <td>{{ substr($reservation->time, 0, 5) }}</td>
-                <td>{{ $reservation->number }}</td>
-                <td>{{ $reservation->user->name }}</td>
-                <td>{{ $reservation->user->email }}</td>
+                <td data-label="日付">{{ $reservation->date }}</td>
+                <td data-label="時間">{{ substr($reservation->time, 0, 5) }}</td>
+                <td data-label="人数">{{ $reservation->number }}</td>
+                <td data-label="名前">{{ $reservation->user->name }}</td>
+                <td data-label="メールアドレス">{{ $reservation->user->email }}</td>
             </tr>
             @endforeach
         </tbody>

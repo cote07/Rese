@@ -2,6 +2,12 @@
     padding-bottom: 50px;
 }
 
+.mypage-content {
+    max-width: 1350px;
+    margin: auto;
+    padding: 10px;
+}
+
 .shop-list img {
     width: 300px;
     height: 150px;
@@ -43,8 +49,13 @@
     display: flex;
 }
 
+.shop-flex {
+    display: flex;
+}
+
 .reservations-section {
     width: 46%;
+    margin-left: 15px;
 }
 
 .reservations-section h3 {
@@ -57,7 +68,7 @@
 
 .reservation {
     background-color: blue;
-    width: 450px;
+    max-width: 450px;
     height: auto;
     margin: auto;
     margin-bottom: 20px;
@@ -73,11 +84,13 @@
 
 .favorites-section h3 {
     font-size: 23px;
+    padding-left: 20px;
 }
 
 .favorites-section-flex {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 3.8rem;
 }
@@ -174,5 +187,43 @@
 }
 
 .charge-form {
-    padding-left: 90px;
+    margin-left: 90px;
+}
+
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .reservations-section {
+        width: 100%;
+        margin: auto;
+    }
+
+    .reservations-section h3 {
+        width: auto;
+        text-align: center;
+    }
+
+    .shop-list img {
+        width: 350px;
+    }
+
+    .favorites-section h3 {
+        width: auto;
+        text-align: center;
+    }
+
+        .charge-form {
+            margin-left: 20px;
+        }
+}
+
+@media (max-width: 1260px) and (min-width: 768px) {
+    .favorites-section h3 {
+        text-align: center;
+        padding-left: 0;
+    }
 }

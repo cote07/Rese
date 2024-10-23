@@ -7,7 +7,7 @@
 }
 
 .shop-detail img {
-    width: 570px;
+    width: 100%;
     margin-bottom: 10px;
 }
 
@@ -16,7 +16,7 @@
     align-items: baseline;
     justify-content: center;
     gap: 6rem;
-    padding-top: 75px;
+    padding: 75px 20px 30px;
 }
 
 .flex {
@@ -150,4 +150,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .shop-detail-flex {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 100px;
+    }
+
+    .shop-detail img {
+        width: 350px;
+        margin-bottom: 10px;
+    }
+
+    .shop-detail {
+        width: 350px;
+    }
+
+    .shop-reservation {
+        width: 350px;
+        height: 550px;
+        margin-bottom: 30px;
+    }
 }

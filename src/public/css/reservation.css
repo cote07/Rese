@@ -71,3 +71,73 @@
     padding: 20px 50px;
     border-bottom: 1px solid #ddd;
 }
+
+@media (max-width: 768px) {
+    .reservation-container {
+        padding: 10px;
+    }
+
+    .reservation-container h2 {
+        font-size: 20px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    .reservation-container p {
+        font-size: 16px;
+    }
+
+    .table {
+        max-width: 500px;
+        width: 100%;
+        margin: 30px auto;
+        border: none;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: #f9f9f9;
+    }
+
+    .table tbody td {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        padding-left: 150px;
+        text-align: left;
+        border-bottom: none;
+        position: relative;
+    }
+
+    .table tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #666;
+    }
+
+    .table tbody td:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 950px) and (min-width: 768px) {
+    .table thead th {
+        padding: 20px 0px 20px 35px;
+    }
+
+    .table tbody td {
+        padding: 20px 0px 20px 35px;
+    }
+}

@@ -7,7 +7,7 @@
 }
 
 .shop-detail img {
-    width: 570px;
+    width: 100%;
     margin-bottom: 10px;
 }
 
@@ -15,8 +15,8 @@
     display: flex;
     align-items: baseline;
     justify-content: center;
-    gap: 6rem;
-    padding-top: 75px;
+    gap: 5rem;
+    padding: 75px 20px 30px;
 }
 
 .flex {
@@ -37,6 +37,7 @@
     color: #fff;
     position: relative;
     padding-top: 15px;
+    padding-right: 15px;
 }
 
 .edit-content h2 {
@@ -87,4 +88,29 @@
     width: 100%;
     max-width: 400px;
     height: 150px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .shop-detail-flex {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 100px;
+    }
+
+    .shop-detail img {
+        width: 350px;
+        margin-bottom: 10px;
+    }
+
+    .shop-detail {
+        width: 350px;
+    }
+
+    .edit-content {
+        width: 350px;
+        margin-bottom: 30px;
+    }
 }

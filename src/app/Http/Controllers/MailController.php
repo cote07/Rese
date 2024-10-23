@@ -26,6 +26,6 @@ class MailController extends Controller
 
         Mail::to($recipient->email)->send(new NotificationMail($subject, $messageContent, $fromEmail));
 
-        return redirect()->back()->with('success', 'メールを送信しました！');
+        return redirect()->back()->with('success', 'メールを送信しました');
     }
 }
