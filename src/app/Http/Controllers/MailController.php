@@ -11,7 +11,9 @@ class MailController extends Controller
 {
     public function mail()
     {
-        $users = User::all();
+        $users = User::whereHas('roles', function ($query) {
+            $query->where('id', 3);
+        })->get();
         return view('send', compact('users'));
     }
 

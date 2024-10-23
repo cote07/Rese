@@ -16,7 +16,7 @@ class ReservationsTableSeeder extends Seeder
      */
     public function run()
     {
-        User::all()->each(function ($user) {
+        User::where('id', '>=', 7)->each(function ($user) {
             Reservation::factory(2)->create(['user_id' => $user->id]);
         });
     }

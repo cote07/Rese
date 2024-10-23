@@ -43,9 +43,10 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::findOrFail($reservation_id);
 
-        $reservation->date = $request->date;
-        $reservation->time = $request->time;
-        $reservation->number = $request->number;
+        $reservation->date = $request->input('date') ?? $reservation->date;
+        $reservation->time = $request->input('time') ?? $reservation->time;
+        $reservation->number = $request->input('number') ?? $reservation->number;
+
         $reservation->save();
 
         return redirect()->route('complete', ['reservation_id' => $reservation->id]);

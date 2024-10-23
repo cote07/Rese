@@ -15,7 +15,7 @@ class FavoritesTableSeeder extends Seeder
      */
     public function run()
     {
-        User::all()->each(function ($user) {
+        User::where('id', '>=', 7)->each(function ($user) {
             Favorite::factory(5)->create(['user_id' => $user->id]);
         });
     }

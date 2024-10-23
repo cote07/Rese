@@ -16,7 +16,6 @@ class ReservationFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::inRandomOrder()->first()->id,
             'shop_id' => Shop::inRandomOrder()->first()->id,
             'date' => $this->faker->dateTimeBetween('now', '+1 month')->format('Y-m-d'),
             'time' => $this->faker->time(),
