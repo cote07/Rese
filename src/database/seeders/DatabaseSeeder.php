@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Contracts\Permission;
 
 class DatabaseSeeder extends Seeder
 {

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 <div class="shop-detail-flex">
     <div class="shop-detail">
         <div class="flex">
@@ -22,7 +21,6 @@
         </div>
         <p>{{ $shop->description }}</p>
     </div>
-
     <div class="shop-reservation">
         <h2>予約変更</h2>
         <form action="{{ route('reservation.update', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}" method="POST">
@@ -59,7 +57,6 @@
         </form>
     </div>
 </div>
-
 @endsection
 
 @section('js')

@@ -20,9 +20,7 @@ class ReservationController extends Controller
     public function create(ReservationRequest $request)
     {
         $user = Auth::user();
-
         $reservationData = $request->only(['date', 'time', 'number']);
-
         $reservationData['user_id'] = $request->input('user_id');
         $reservationData['shop_id'] = $request->input('shop_id');
 
@@ -39,14 +37,12 @@ class ReservationController extends Controller
         return back();
     }
 
-    public function update(Request $request, $shop_id, $reservation_id)
+    public function update(Request $request, $reservation_id)
     {
         $reservation = Reservation::findOrFail($reservation_id);
-
         $reservation->date = $request->input('date') ?? $reservation->date;
         $reservation->time = $request->input('time') ?? $reservation->time;
         $reservation->number = $request->input('number') ?? $reservation->number;
-
         $reservation->save();
 
         return redirect()->route('complete', ['reservation_id' => $reservation->id]);
@@ -67,7 +63,7 @@ class ReservationController extends Controller
             $start = strtotime('+30 minutes', $start);
         }
 
-        return view('change', compact('reservation','user', 'shop', 'timeSlots'));
+        return view('change', compact('reservation', 'user', 'shop', 'timeSlots'));
     }
 
     public function complete($reservation_id)
@@ -80,9 +76,7 @@ class ReservationController extends Controller
     public function generate(Request $request)
     {
         $reservationId = $request->input('reservation_id');
-
         $reservation = Reservation::with(['shop', 'user'])->find($reservationId);
-
         $qrData = sprintf(
             "Date: %s\nTime: %s\nNumber: %d\nShop: %s\nUser: %s\nEmail: %s",
             $reservation->shop->name,
@@ -94,7 +88,6 @@ class ReservationController extends Controller
         );
 
         $qrCode = \QrCode::encoding('UTF-8')->size(150)->generate($qrData);
-
         Session::flash('qrCode', $qrCode);
         Session::flash('reservationId', $reservationId);
 
@@ -105,5 +98,4 @@ class ReservationController extends Controller
     {
         return view('mypage', ['reservation_id' => $reservation_id]);
     }
-
 }

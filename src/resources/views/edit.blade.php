@@ -26,12 +26,10 @@
         <form action="{{ route('owner.shop.update', ['shop_id' => $shop->id]) }}" method="POST" enctype="multipart/form-data" class="form">
             @csrf
             @method('PATCH')
-
             <div class="form-group">
                 <label class="form-label">店舗名</label>
                 <input type="text" name="name" class="form-control" value="{{ $shop->name }}">
             </div>
-
             <div class="form-group">
                 <label class="form-label">エリア</label>
                 <select name="area_id" class="form-control">
@@ -42,7 +40,6 @@
                     @endforeach
                 </select>
             </div>
-
             <div class="form-group">
                 <label class="form-label">ジャンル</label>
                 <select name="genre_id" class="form-control">
@@ -53,17 +50,14 @@
                     @endforeach
                 </select>
             </div>
-
             <div class="form-group">
                 <label class="form-label">説明</label>
                 <textarea name="description">{{ $shop->description }}</textarea>
             </div>
-
             <div class="form-group">
                 <label class="form-label">画像</label>
                 <input type="file" name="image_url" accept="image/*">
             </div>
-
             <button type="submit" class="update-button">更新する</button>
         </form>
     </div>

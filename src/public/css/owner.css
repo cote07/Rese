@@ -94,7 +94,7 @@
 }
 
 @media (max-width: 768px) {
-.shop-list img {
+    .shop-list img {
         width: 350px;
     }
 }

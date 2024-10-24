@@ -11,7 +11,6 @@ class FavoriteController extends Controller
     public function create($shop_id)
     {
         $user = Auth::user();
-
         $exists = Favorite::where('user_id', $user->id)
             ->where('shop_id', $shop_id)
             ->exists();
@@ -22,7 +21,6 @@ class FavoriteController extends Controller
                 'shop_id' => $shop_id,
             ]);
         }
-
         return back();
     }
 
@@ -33,7 +31,6 @@ class FavoriteController extends Controller
         Favorite::where('user_id', $user->id)
             ->where('shop_id', $shop_id)
             ->delete();
-
         return back();
     }
 }

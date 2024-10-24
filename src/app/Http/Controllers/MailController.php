@@ -20,9 +20,7 @@ class MailController extends Controller
     public function send(Request $request)
     {
         $fromEmail = auth()->user()->email;
-
         $recipient = User::find($request->recipient_id);
-
         $subject = $request->input('subject');
         $messageContent = $request->input('message');
 

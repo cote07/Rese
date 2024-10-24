@@ -9,13 +9,11 @@
     <div class="email-title">
         <h2>Email</h2>
     </div>
-
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
     @endif
-
     <form action="{{ route('mail.send') }}" method="POST" class="form">
         @csrf
         <div class="form-group">
@@ -27,17 +25,14 @@
                 @endforeach
             </select>
         </div>
-
         <div class="form-group">
             <label>件名</label>
             <input type="text" name="subject" class="mail-subject" value="{{ old('subject') }}">
         </div>
-
         <div class="form-group">
             <label>本文</label>
             <textarea name="message" class="mail-message">{{ old('message') }}</textarea>
         </div>
-
         <div class="form-group-button">
             <button type="submit" class="send-button">送信</button>
         </div>

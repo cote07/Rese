@@ -216,9 +216,9 @@
         text-align: center;
     }
 
-        .charge-form {
-            margin-left: 20px;
-        }
+    .charge-form {
+        margin-left: 20px;
+    }
 }
 
 @media (max-width: 1260px) and (min-width: 768px) {

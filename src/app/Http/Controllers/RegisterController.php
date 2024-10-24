@@ -22,9 +22,7 @@ class RegisterController extends Controller
         ]);
 
         $user->assignRole('user');
-
         Auth::login($user);
-
         event(new Registered($user));
 
         return redirect()->route('verification.notice');

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 <div class="search-content">
     <form id="search-form" method="GET" action="{{ route('search') }}">
         <select id="area-select" name="area_id" onchange="document.getElementById('search-form').submit();">
@@ -14,14 +13,12 @@
             <option value="{{ $area->id }}" {{ request('area_id') == $area->id ? 'selected' : '' }}>{{ $area->name }}</option>
             @endforeach
         </select>
-
         <select id="genre-select" name="genre_id" onchange="document.getElementById('search-form').submit();">
             <option value="">All genre</option>
             @foreach ($genres as $genre)
             <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>{{ $genre->name }}</option>
             @endforeach
         </select>
-
         <div class="search-text">
             <span class="material-icons-outlined search-icon">
                 search
@@ -30,7 +27,6 @@
         </div>
     </form>
 </div>
-
 <div class=" shop-container">
     <div class="shop-content" id="search-results">
         @foreach($shops as $shop)
@@ -54,9 +50,7 @@
                     @php
                     $isFavorite = auth()->user()->favorites->contains('shop_id', $shop->id);
                     @endphp
-
                     @if ($isFavorite)
-                    {{-- お気に入りの削除フォーム --}}
                     <form action="{{ route('favorite.delete', ['shop_id' => $shop->id]) }}" method="POST" class="shop__button-favorite form">
                         @csrf
                         @method('DELETE')
@@ -67,7 +61,6 @@
                         </button>
                     </form>
                     @else
-                    {{-- お気に入りの追加フォーム --}}
                     <form action="{{ route('favorite.create', ['shop_id' => $shop->id]) }}" method="POST" class="shop__button-favorite form">
                         @csrf
                         <button type="submit" class="shop__button-favorite-btn">
@@ -84,5 +77,4 @@
         @endforeach
     </div>
 </div>
-
 @endsection

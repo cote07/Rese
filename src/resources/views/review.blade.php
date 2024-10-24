@@ -12,7 +12,6 @@
         <input type="hidden" name="reservation_id" value="{{ $reservation_id }}">
         <input type="hidden" name="shop_id" value="{{ $shop_id }}">
         <input type="hidden" name="user_id" value="{{ $user_id }}">
-
         <div class="form-group">
             <p>評価</p>
             <select name="rating" id="rating" class="rating" required>
@@ -22,12 +21,10 @@
                     @endfor
             </select>
         </div>
-
         <div class="form-group">
             <p>コメント</p>
             <textarea name="comment" id="comment" class="comment" rows="5"></textarea>
         </div>
-
         @if($errors->any())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)
@@ -35,7 +32,6 @@
             @endforeach
         </div>
         @endif
-
         <button type="submit" class="btn btn-primary">投稿</button>
     </form>
 </div>

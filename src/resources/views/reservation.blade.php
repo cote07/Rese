@@ -7,7 +7,6 @@
 @section('content')
 <div class="reservation-container">
     <h2>{{ $shop->name }}の予約情報</h2>
-
     @if($reservations->isEmpty())
     <p>予約がまだありません。</p>
     @else

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 <div class="mypage-content">
     <h2 class="mypage-name">{{ $user->name }}さん</h2>
     <form action="{{ asset('charge') }}" method="POST" class="charge-form">
@@ -94,7 +93,6 @@
                             @endphp
 
                             @if ($isFavorite)
-                            {{-- お気に入りの削除フォーム --}}
                             <form action="{{ route('favorite.delete', ['shop_id' => $favorite->shop->id]) }}" method="POST" class="shop__button-favorite form">
                                 @csrf
                                 @method('DELETE')
@@ -105,7 +103,6 @@
                                 </button>
                             </form>
                             @else
-                            {{-- お気に入りの追加フォーム --}}
                             <form action="{{ route('favorite.create', ['shop_id' => $favorite->shop->id]) }}" method="POST" class="shop__button-favorite form">
                                 @csrf
                                 <button type="submit" class="shop__button-favorite-btn" title="お気に入り追加">
@@ -124,5 +121,4 @@
         </div>
     </div>
 </div>
-
 @endsection

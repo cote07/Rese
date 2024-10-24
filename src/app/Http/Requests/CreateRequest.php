@@ -41,7 +41,6 @@ class CreateRequest extends FormRequest
             'area_id.required' => 'エリアを選択してください。',
             'genre_id.required' => 'ジャンルを選択してください。',
             'image_url.required' => '画像を選択してください。',
-            'image_url.image' => 'アップロードされたファイルは画像である必要があります。',
             'image_url.mimes' => '画像ファイルはjpeg、png、jpg、gif形式である必要があります。',
             'image_url.max' => '画像ファイルのサイズは2MB以下である必要があります。',
         ];

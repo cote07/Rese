@@ -12,7 +12,6 @@
     <div class="main-content">
         <h2>メールアドレスの確認</h2>
         <p>確認用のメールを {{ auth()->user()->email }} 宛に送信しました。<br>メールアドレスの確認を行ってください。</p>
-
         <form action="/resend-verification-email" method="POST">
             @csrf
             <button type="submit">確認メールを再送信</button>

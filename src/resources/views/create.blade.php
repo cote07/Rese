@@ -9,7 +9,6 @@
     <h2>新店舗作成</h2>
     <form action="{{ route('shop.store') }}" method="POST" enctype="multipart/form-data" class="form">
         @csrf
-
         <div class="form-group">
             <div class="flex">
                 <label class="form-label">店舗名</label>
@@ -21,7 +20,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="form-group">
             <div class="flex">
                 <label class="form-label">エリア</label>
@@ -38,7 +36,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="form-group">
             <div class="flex">
                 <label class="form-label">ジャンル</label>
@@ -55,7 +52,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="form-group">
             <div class="flex">
                 <label class="form-label">説明</label>
@@ -67,7 +63,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="form-group">
             <div class="flex">
                 <label class="form-label">画像</label>
@@ -79,7 +74,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="create-btn">
             <button type="submit" class="create-button">作成</button>
         </div>

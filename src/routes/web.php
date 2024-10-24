@@ -44,7 +44,6 @@ Route::group(['middleware' => ['auth', 'role:owner']], function () {
 
 Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/done', [ReservationController::class, 'done'])->name('done');
-  Route::get('/thanks', [RegisterController::class, 'thanks'])->name('thanks');
   Route::post('/shops/{shop_id}/favorites', [FavoriteController::class, 'create'])->name('favorite.create');
   Route::delete('/shops/{shop_id}/favorites', [FavoriteController::class, 'delete'])->name('favorite.delete');
   Route::post('/shops/{shop_id}/reservations', [ReservationController::class, 'create'])->name('reservation.create');
@@ -62,6 +61,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
 Route::post('/login', [AuthController::class, 'store']);
 Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/thanks', [RegisterController::class, 'thanks'])->name('thanks');
 Route::get('/', [ShopController::class, 'index'])->name('index');
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('detail');
 Route::get('/search', [ShopController::class, 'search'])->name('search');
@@ -69,11 +69,9 @@ Route::get('/search', [ShopController::class, 'search'])->name('search');
 Route::get('/email/verify', function () {
   return view('verify');
 })->middleware('auth')->name('verification.notice');
-
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
   $request->fulfill();
   return redirect('/thanks');
-
 })->middleware(['auth', 'signed'])->name('verification.verify');
 Route::post('/resend-verification-email', [VerificationController::class, 'resend'])
   ->middleware(['auth', 'throttle:6,1'])

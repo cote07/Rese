@@ -30,6 +30,5 @@ class Reservation extends Model
         'date',
         'time',
         'number',
-        'status',
     ];
 }

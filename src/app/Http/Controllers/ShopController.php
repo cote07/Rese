@@ -15,18 +15,16 @@ class ShopController extends Controller
         $areas = Area::all();
         $genres = Genre::all();
         $shops = Shop::with('area', 'genre')->get();
+
         return view('index', compact('shops', 'areas', 'genres'));
     }
 
     public function detail($shop_id)
     {
-        $shop = Shop::with('area','genre', 'reviews.user')->findOrFail($shop_id);
+        $shop = Shop::with('area', 'genre', 'reviews.user')->findOrFail($shop_id);
         $user = auth()->user();
-
         $shopIds = Shop::orderBy('id')->pluck('id')->toArray();
-
         $currentIndex = array_search($shop->id, $shopIds);
-
         $prevIndex = $currentIndex - 1 < 0 ? count($shopIds) - 1 : $currentIndex - 1;
         $prevShopId = $shopIds[$prevIndex];
 
@@ -49,7 +47,7 @@ class ShopController extends Controller
             $start = strtotime('+30 minutes', $start);
         }
 
-        return view('detail', compact('shop', 'user','prevShopId', 'reservation_id', 'timeSlots'));
+        return view('detail', compact('shop', 'user', 'prevShopId', 'reservation_id', 'timeSlots'));
     }
 
     public function search(Request $request)
@@ -76,6 +74,4 @@ class ShopController extends Controller
 
         return view('index', compact('shops', 'areas', 'genres'));
     }
-
-
 }

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 <div class="shop-detail-flex">
     <div class="shop-detail">
         <div class="flex">
@@ -28,7 +27,6 @@
                 <h2>レビュー</h2>
                 @if (Auth::check())
                 <a href="{{ route('reviews', ['shop_id' => $shop->id, 'reservation_id' => $reservation_id]) }}" class="review-button">投稿する</a>
-
                 @endif
             </div>
             @if ($shop->reviews->isEmpty())
@@ -45,7 +43,6 @@
             @endif
         </div>
     </div>
-
     <div class="shop-reservation">
         <h2>予約</h2>
         <form action="{{ route('reservation.create', ['shop_id' => $shop->id]) }}" method="post">
@@ -98,7 +95,6 @@
         </form>
     </div>
 </div>
-
 @endsection
 
 @section('js')

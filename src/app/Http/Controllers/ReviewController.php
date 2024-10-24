@@ -17,7 +17,7 @@ class ReviewController extends Controller
         $reservation_id = $request->query('reservation_id');
         $user_id = auth()->check() ? auth()->id() : null;
 
-        return view('review', compact('shop', 'reservation_id','shop_id', 'user_id'));
+        return view('review', compact('shop', 'reservation_id', 'shop_id', 'user_id'));
     }
 
     public function store(Request $request)

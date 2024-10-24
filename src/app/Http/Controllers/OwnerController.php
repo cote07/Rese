@@ -15,7 +15,6 @@ class OwnerController extends Controller
     public function owner()
     {
         $user = Auth::user();
-
         $shops = $user->ownedShops;
 
         return view('owner', compact('shops'));
@@ -24,7 +23,6 @@ class OwnerController extends Controller
     public function reservations($shop_id)
     {
         $shop = Shop::findOrFail($shop_id);
-
         $reservations = Reservation::where('shop_id', $shop->id)
             ->orderBy('date', 'asc')
             ->paginate(5);
@@ -54,7 +52,6 @@ class OwnerController extends Controller
         $shop->area_id = $request->area_id;
         $shop->genre_id = $request->genre_id;
         $shop->description = $request->description;
-
         $shop->save();
 
         $areas = Area::all();

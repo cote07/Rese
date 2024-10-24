@@ -23,9 +23,9 @@
 }
 
 .form-group {
-   padding-top: 5px;
-   padding-bottom: 5px;
-   margin-left: 35px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 35px;
 }
 
 .form-group p {
@@ -45,16 +45,16 @@
 .btn-primary {
     background-color: blue;
     color: #fff;
-   display: flex;
-   width: 100px;
-   height: 35px;
-   border: none;
-   align-items: center;
-   justify-content: center;
-   border-radius: 5px;
-   margin-left: auto;
-   margin-right: 35px;
-   margin-top: 15px;
+    display: flex;
+    width: 100px;
+    height: 35px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 35px;
+    margin-top: 15px;
 }
 
 .alert-danger {

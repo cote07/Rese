@@ -22,7 +22,6 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
-        'password',
     ];
 
     /**
@@ -54,7 +53,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Reservation::class);
     }
 
-    public function ownedShops(): BelongsToMany
+    public function owners(): BelongsToMany
     {
         return $this->belongsToMany(Shop::class, 'owners', 'user_id', 'shop_id');
     }
