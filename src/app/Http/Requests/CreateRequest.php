@@ -37,6 +37,7 @@ class CreateRequest extends FormRequest
         return [
             'name.required' => '店舗名は必須です。',
             'description.required' => '説明は必須です。',
+            'description.max' => '説明は255文字以内で入力してください。',
             'area_id.required' => 'エリアを選択してください。',
             'genre_id.required' => 'ジャンルを選択してください。',
             'image_url.required' => '画像を選択してください。',
