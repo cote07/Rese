@@ -82,7 +82,7 @@
     width: 54%;
 }
 
-.favorites-section h3 {
+.favorites-title {
     font-size: 23px;
 }
 
@@ -210,7 +210,7 @@
         width: 335px;
     }
 
-    .favorites-section h3 {
+    .favorites-title {
         width: auto;
         text-align: center;
     }

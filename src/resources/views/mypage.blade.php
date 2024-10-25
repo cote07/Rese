@@ -68,7 +68,7 @@
             @endforeach
         </div>
         <div class="favorites-section">
-            <h3>お気に入り店舗</h3>
+            <h3 class="favorites-title">お気に入り店舗</h3>
             <div class="favorites-section-flex">
                 @foreach($favorites as $favorite)
                 <div class="shop-list">
