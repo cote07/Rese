@@ -37,7 +37,7 @@ class ReservationController extends Controller
         return back();
     }
 
-    public function update(Request $request, $reservation_id)
+    public function update(Request $request, $shop_id, $reservation_id)
     {
         $reservation = Reservation::findOrFail($reservation_id);
         $reservation->date = $request->input('date') ?? $reservation->date;

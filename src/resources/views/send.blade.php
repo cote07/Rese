@@ -17,7 +17,7 @@
     <form action="{{ route('mail.send') }}" method="POST" class="form">
         @csrf
         <div class="form-group">
-            <label>宛名</label>
+            <label class="form-label">宛名</label>
             <select name="recipient_id" class="mail-recipient">
                 <option value="">宛先を選択</option>
                 @foreach($users as $user)
@@ -26,11 +26,11 @@
             </select>
         </div>
         <div class="form-group">
-            <label>件名</label>
+            <label class="form-label">件名</label>
             <input type="text" name="subject" class="mail-subject" value="{{ old('subject') }}">
         </div>
         <div class="form-group">
-            <label>本文</label>
+            <label class="form-label">本文</label>
             <textarea name="message" class="mail-message">{{ old('message') }}</textarea>
         </div>
         <div class="form-group-button">

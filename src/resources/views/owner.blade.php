@@ -17,7 +17,7 @@
             @endif
             <div class="shop-list-text">
                 <div class="shop">
-                    <h2>{{ $shop->name }}</h2>
+                    <h3>{{ $shop->name }}</h3>
                     <div class="flex">
                         <p>#{{ $shop->area->name }}</p>
                         <p>#{{ $shop->genre->name }}</p>

@@ -79,7 +79,7 @@
                     @endif
                     <div class="shop-list-text">
                         <div class="shop">
-                            <h2>{{ $favorite->shop->name }}</h2>
+                            <h3>{{ $favorite->shop->name }}</h3>
                             <div class="shop-flex">
                                 <p>#{{ $favorite->shop->area->name }}</p>
                                 <p>#{{ $favorite->shop->genre->name }}</p>
