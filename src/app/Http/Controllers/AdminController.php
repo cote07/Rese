@@ -25,6 +25,7 @@ class AdminController extends Controller
 
         $role = Role::findByName('owner');
         $user->assignRole($role);
+        session()->flash('success', '店舗代表者が作成されました');
 
         return redirect()->back();
     }

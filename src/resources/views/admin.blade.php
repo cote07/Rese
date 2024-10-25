@@ -60,5 +60,10 @@
             <button class="form__button-submit" type="submit">作成</button>
         </div>
     </form>
+    @if (session('success'))
+    <div class="alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
 </div>
 @endsection

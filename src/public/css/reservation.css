@@ -132,7 +132,7 @@
     }
 }
 
-@media (max-width: 950px) and (min-width: 768px) {
+@media (max-width: 1050px) and (min-width: 768px) {
     .table thead th {
         padding: 20px 0px 20px 35px;
     }

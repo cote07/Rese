@@ -78,7 +78,7 @@ class ReservationController extends Controller
         $reservationId = $request->input('reservation_id');
         $reservation = Reservation::with(['shop', 'user'])->find($reservationId);
         $qrData = sprintf(
-            "Date: %s\nTime: %s\nNumber: %d\nShop: %s\nUser: %s\nEmail: %s",
+            "Shop: %s\nUser: %s\nEmail: %s\nDate: %s\nTime: %s\nNumber: %d",
             $reservation->shop->name,
             $reservation->user->name,
             $reservation->user->email,

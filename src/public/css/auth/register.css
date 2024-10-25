@@ -63,3 +63,7 @@
 .password {
     color: #000;
 }
+
+.alert-success {
+    color: #3c763d;
+}
