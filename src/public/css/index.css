@@ -141,11 +141,14 @@
 
     #search-form select {
         width: 300px;
+        margin-bottom: 5px;
+        border-radius: 2px;
     }
 
     #search-form input {
         width: 277px;
         height: 35px;
+        border-radius: 2px;
     }
 
     .search-text {
