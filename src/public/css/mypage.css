@@ -49,6 +49,10 @@
     display: flex;
 }
 
+.button-flex {
+    display: flex;
+}
+
 .shop-flex {
     display: flex;
 }

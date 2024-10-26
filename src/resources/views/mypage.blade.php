@@ -33,7 +33,7 @@
                         </span>
                         <p>予約{{ $loop->iteration }}</p>
                     </div>
-                    <div class="flex">
+                    <div class="button-flex">
                         <a href="{{ route('reservation.update', ['shop_id' => $reservation->shop_id, 'reservation_id' => $reservation->id]) }}">
                             <span class="material-icons-outlined update-icon">
                                 update
