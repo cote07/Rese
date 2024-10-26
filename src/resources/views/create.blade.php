@@ -12,7 +12,7 @@
         <div class="form-group">
             <div class="flex">
                 <label class="form-label">店舗名</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
             </div>
             <div class="form__error">
                 @error('name')
@@ -26,7 +26,7 @@
                 <select name="area_id" class="form-control">
                     <option value="" selected disabled>エリアを選択してください</option>
                     @foreach ($areas as $area)
-                    <option value="{{ $area->id }}">{{ $area->name }}</option>
+                    <option value="{{ $area->id }}" {{ old('area_id') == $area->id ? 'selected' : '' }}>{{ $area->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -42,7 +42,7 @@
                 <select name="genre_id" class="form-control">
                     <option value="" selected disabled>ジャンルを選択してください</option>
                     @foreach ($genres as $genre)
-                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                    <option value="{{ $genre->id }}" {{ old('genre_id') == $genre->id ? 'selected' : '' }}>{{ $genre->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -55,7 +55,7 @@
         <div class="form-group">
             <div class="flex">
                 <label class="form-label">説明</label>
-                <textarea name="description" class="form-control" rows="6"></textarea>
+                <textarea name="description" class="form-control" rows="6">{{ old('description') }}</textarea>
             </div>
             <div class="form__error">
                 @error('description')
