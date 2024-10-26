@@ -53,7 +53,7 @@
 3. cp .env.example .env
 4. .envに以下の環境変数を追加
    >  MAIL_USERNAME,  MAIL_PASSWORD,  MAIL_FROM_ADDRESS には自身で用意したmailtrapの情報を設定してください
-   >  STRIPE_KEY,  STRIPE_SECRET　には自身で用意したstripeの情報を設定してください
+   >  STRIPE_KEY,  STRIPE_SECRETには自身で用意したstripeの情報を設定してください
 ``` text
 APP_NAME=Rese
 ```
