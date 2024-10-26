@@ -85,6 +85,7 @@ STRIPE_SECRET=
 8. php artisan storage:link
     >  権限付与が必要な場合は下記のコマンドを実行してください
     ``` text
+    chmod -R 775 public
     chmod -R 775 storage
     chmod -R 775 bootstrap/cache
     ```
